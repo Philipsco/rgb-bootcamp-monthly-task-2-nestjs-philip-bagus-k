@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { Migration } from '@config/database/migration.provider';
 import { DataType } from 'sequelize-typescript';
 

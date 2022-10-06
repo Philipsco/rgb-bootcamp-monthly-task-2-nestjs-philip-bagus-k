@@ -3,6 +3,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { SequelizeStorage, Umzug } from 'umzug';
 
 import { databasePath } from '../../migrations/migration-template';
+
 import config from './config';
 
 /** DATABASE MIGRATOR */

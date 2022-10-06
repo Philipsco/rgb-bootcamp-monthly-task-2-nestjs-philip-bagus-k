@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { SetMetadata } from '@nestjs/common';
 import { PERMISSION } from '@utils/enum/authorization.enum';
 

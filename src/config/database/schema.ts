@@ -1,4 +1,5 @@
 import * as Joi from 'joi';
+
 export default Joi.object({
   DB_HOST: Joi.string(),
   DB_PORT: Joi.number(),
