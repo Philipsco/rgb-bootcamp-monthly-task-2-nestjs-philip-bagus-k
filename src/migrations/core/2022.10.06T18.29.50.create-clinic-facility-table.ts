@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { Migration } from '@config/database/migration.provider';
 import { DataType } from 'sequelize-typescript';
 
@@ -5,42 +6,44 @@ export const databasePath = __dirname;
 
 export const up: Migration = async ({ context: queryInterface }) => {
   await queryInterface.sequelize.transaction(async (transaction) => {
-    await queryInterface.createTable('user', {
+    await queryInterface.createTable('clinic_facility', {
       id: {
         type: DataType.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      user_login_id: {
+      id_clinic: {
         type: DataType.INTEGER,
+        allowNull: false,
+        primaryKey: true,
         references: {
+          model: 'clinic',
           key: 'id',
-          model: 'user_login',
         },
       },
-      name: {
-        type: DataType.STRING,
+      id_facility_test: {
+        type: DataType.INTEGER,
         allowNull: false,
+        primaryKey: true,
+        references: {
+          model: 'facility_test',
+          key: 'id',
+        },
       },
-      code: {
-        type: DataType.STRING,
+      is_active: {
+        type: DataType.BOOLEAN,
         allowNull: false,
-      },
-      email: {
-        type: DataType.STRING,
-        allowNull: false,
-      },
-      phone: {
-        type: DataType.STRING,
+        defaultValue: true,
       },
       created_at: DataType.DATE,
       updated_at: DataType.DATE,
       deleted_at: DataType.DATE,
     });
+    await queryInterface.addIndex('clinic_facility', ['is_active']);
   });
 };
 export const down: Migration = async ({ context: queryInterface }) => {
   await queryInterface.sequelize.transaction(async (transaction) => {
-    await queryInterface.dropTable('user');
+    await queryInterface.dropTable('clinic_facility');
   });
 };

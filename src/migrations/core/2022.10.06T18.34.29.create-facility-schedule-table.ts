@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { Migration } from '@config/database/migration.provider';
 import { DataType } from 'sequelize-typescript';
 
@@ -5,30 +6,20 @@ export const databasePath = __dirname;
 
 export const up: Migration = async ({ context: queryInterface }) => {
   await queryInterface.sequelize.transaction(async (transaction) => {
-    await queryInterface.createTable('user_role', {
-      user_id: {
+    await queryInterface.createTable('table_name', {
+      id: {
         type: DataType.INTEGER,
         primaryKey: true,
-        allowNull: false,
-        references: {
-          key: 'id',
-          model: 'user',
-        },
+        autoIncrement: true,
       },
-      role_id: {
-        type: DataType.INTEGER,
-        primaryKey: true,
-        allowNull: false,
-        references: {
-          key: 'id',
-          model: 'role',
-        },
-      },
+      created_at: DataType.DATE,
+      updated_at: DataType.DATE,
+      deleted_at: DataType.DATE,
     });
   });
 };
 export const down: Migration = async ({ context: queryInterface }) => {
   await queryInterface.sequelize.transaction(async (transaction) => {
-    await queryInterface.dropTable('user_role');
+    await queryInterface.dropTable('table_name');
   });
 };
