@@ -12,19 +12,17 @@ export const up: Migration = async ({ context: queryInterface }) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      id_clinic: {
+      clinicId: {
         type: DataType.INTEGER,
         allowNull: false,
-        primaryKey: true,
         references: {
           model: 'clinic',
           key: 'id',
         },
       },
-      id_facility_test: {
+      facilityTestId: {
         type: DataType.INTEGER,
         allowNull: false,
-        primaryKey: true,
         references: {
           model: 'facility_test',
           key: 'id',
@@ -34,6 +32,11 @@ export const up: Migration = async ({ context: queryInterface }) => {
         type: DataType.BOOLEAN,
         allowNull: false,
         defaultValue: true,
+      },
+      is_deleted: {
+        type: DataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       created_at: DataType.DATE,
       updated_at: DataType.DATE,

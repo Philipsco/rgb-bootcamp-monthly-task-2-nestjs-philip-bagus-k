@@ -1,8 +1,6 @@
 export interface ICreateUserDTO {
-  username: string;
+  email: string;
   password: string;
   name: string;
-  email: string;
   phone?: string;
-  roleId: number;
 }

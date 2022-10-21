@@ -12,22 +12,27 @@ export const up: Migration = async ({ context: queryInterface }) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name_test: {
-        type: DataType.STRING,
+      testName: {
+        type: DataType.STRING(50),
         allowNull: false,
       },
-      desc_test: {
-        type: DataType.STRING,
+      testDesc: {
+        type: DataType.STRING(200),
         allowNull: false,
       },
       price: {
-        type: DataType.INTEGER,
+        type: DataType.INTEGER({ length: 100 }),
         allowNull: false,
       },
       is_active: {
         type: DataType.BOOLEAN,
         allowNull: false,
         defaultValue: true,
+      },
+      is_deleted: {
+        type: DataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       created_at: DataType.DATE,
       updated_at: DataType.DATE,

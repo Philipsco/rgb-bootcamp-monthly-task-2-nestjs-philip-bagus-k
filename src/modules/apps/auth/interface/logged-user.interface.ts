@@ -1,7 +1,4 @@
 export interface ILoggedUser {
-  userLoginId: number
-  username: string
+  email: string
   userId: number
-  permissions: string[];
-  roles: string[];
 }

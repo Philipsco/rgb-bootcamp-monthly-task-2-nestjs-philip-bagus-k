@@ -1,5 +1,5 @@
 import { AuthConfigService } from '@config/auth/config.provider';
-import { UserLogin } from '@models/core/UserLogin';
+import { User } from '@models/core/User';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AUTH } from '@utils/constant';
 import { compare } from 'bcrypt';
@@ -21,13 +21,12 @@ export class AuthService {
    * @param {ILogin}
    * @returns
    */
-  async login({ username, password }: ILogin): Promise<{ expiresIn: number, token: string }> {
-    const userLogin = await UserLogin
+  async login({ email, password }: ILogin): Promise<{ expiresIn: number, token: string }> {
+    const userLogin = await User
       .scopes('active')
-      .findOneCache({
-        ttl: 1,
+      .findOne({
         where: {
-          username,
+          email,
         },
         include: [{ association: 'user', required: true }],
         rejectOnEmpty: new UnauthorizedException(),
@@ -37,9 +36,8 @@ export class AuthService {
     if (!isPasswordSame) throw new UnauthorizedException();
 
     const loginPayload: ILoginPayload = {
-      userId: userLogin.user.id,
-      userLoginId: userLogin.id,
-      username: userLogin.username,
+      userId: userLogin.id,
+      email: userLogin.email,
     };
 
     return this.commonAuthProvider.createToken(

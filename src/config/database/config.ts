@@ -25,7 +25,7 @@ export default {
     write: {
       database: env.DB_NAME,
       username: env.DB_USERNAME,
-      password: env.DB_PASSWORD,
+      password: '',
       host: env.DB_HOST,
       port: +env.DB_PORT,
     },

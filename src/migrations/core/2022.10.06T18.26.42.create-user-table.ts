@@ -12,24 +12,16 @@ export const up: Migration = async ({ context: queryInterface }) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      no_ktp: {
-        type: DataType.INTEGER,
+      no_id: {
+        type: DataType.BIGINT({ length: 16 }),
         allowNull: false,
       },
       name: {
-        type: DataType.STRING,
+        type: DataType.STRING(50),
         allowNull: false,
       },
       no_hp: {
-        type: DataType.INTEGER,
-        allowNull: false,
-      },
-      email: {
-        type: DataType.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataType.STRING,
+        type: DataType.BIGINT({ length: 12 }),
         allowNull: false,
       },
       birth_date: {
@@ -37,13 +29,26 @@ export const up: Migration = async ({ context: queryInterface }) => {
         allowNull: false,
       },
       address: {
-        type: DataType.STRING,
+        type: DataType.STRING(250),
+        allowNull: false,
+      },
+      email: {
+        type: DataType.STRING(100),
+        allowNull: false,
+      },
+      password: {
+        type: DataType.STRING(50),
         allowNull: false,
       },
       is_active: {
         type: DataType.BOOLEAN,
         allowNull: false,
         defaultValue: true,
+      },
+      is_deleted: {
+        type: DataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       created_at: DataType.DATE,
       updated_at: DataType.DATE,

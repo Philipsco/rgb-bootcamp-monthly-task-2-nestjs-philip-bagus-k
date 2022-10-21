@@ -1,5 +1,5 @@
 export interface IPreLogin {
-  username: string
+  email: string
 }
 
 export interface ILogin extends IPreLogin {
@@ -8,6 +8,5 @@ export interface ILogin extends IPreLogin {
 
 export interface ILoginPayload {
   userId: number
-  userLoginId: number
-  username: string
+  email: string
 }

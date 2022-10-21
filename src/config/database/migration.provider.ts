@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import * as fs from 'fs';
 import { Sequelize } from 'sequelize-typescript';
 import { SequelizeStorage, Umzug } from 'umzug';

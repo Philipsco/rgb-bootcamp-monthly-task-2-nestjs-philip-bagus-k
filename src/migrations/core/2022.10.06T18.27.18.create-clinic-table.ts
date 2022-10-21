@@ -12,22 +12,27 @@ export const up: Migration = async ({ context: queryInterface }) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name_clinic: {
-        type: DataType.STRING,
+      clinicName: {
+        type: DataType.STRING(50),
         allowNull: false,
       },
-      address_clinic: {
-        type: DataType.STRING,
+      clinicAddress: {
+        type: DataType.STRING(250),
         allowNull: false,
       },
-      no_telp: {
-        type: DataType.INTEGER,
+      telephoneNumber: {
+        type: DataType.INTEGER({ length: 12 }),
         allowNull: false,
       },
       is_active: {
         type: DataType.BOOLEAN,
         allowNull: false,
         defaultValue: true,
+      },
+      is_deleted: {
+        type: DataType.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
       created_at: DataType.DATE,
       updated_at: DataType.DATE,

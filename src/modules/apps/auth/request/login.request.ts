@@ -5,7 +5,7 @@ import { ILogin } from '../interface/login.interface';
 export class LoginRequest implements ILogin {
   @IsNotEmpty()
   @IsString()
-    username: string;
+    email: string;
 
   @IsNotEmpty()
   @IsString()

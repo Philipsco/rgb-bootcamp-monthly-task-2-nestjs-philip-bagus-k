@@ -28,7 +28,7 @@ export class AuthProvider {
       key,
       audience,
     }: {
-      payload: { userId: number; userLoginId: number; username: string } & any;
+      payload: { userId: number; email: string } & any;
       key: string;
       audience: string;
     },
@@ -109,10 +109,10 @@ export class AuthProvider {
 
   sessionPayload(
     audience: string,
-    { userId, username, userLoginId }: { userId: number, username: string, userLoginId: number },
+    { userId, email }: { userId: number, email: string },
   )
     : string {
     const appName = this.configService.get('app.name');
-    return `${appName}${audience}${userId}${username}${userLoginId}`;
+    return `${appName}${audience}${userId}${email}`;
   }
 }

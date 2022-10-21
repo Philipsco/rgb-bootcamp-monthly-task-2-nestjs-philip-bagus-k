@@ -4,7 +4,7 @@ import { Expose } from 'class-transformer';
 export class LoginVm {
   // @example asdasdasd
   @Expose()
-    expiresIn = 'asdasd';
+    expiresIn = 3000;
 
   // @example 50
   @Expose()
