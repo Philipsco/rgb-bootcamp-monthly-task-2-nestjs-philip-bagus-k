@@ -11,7 +11,9 @@
 <body>
     <div class="container">
         <div class="row justify-content-center align-items-center">
-            <a href="#" title="Rolling Glory"><img src="https://rollingglory.com/images/logo-rgb-header.svg" alt=""></a>
+            <div class="col-lg-5 col-md-7 text-md-center">
+                <a href="#" title="Rolling Glory"><img src="https://rollingglory.com/images/logo-rgb-header.svg" alt="RGB Logo"></a>
+            </div>
         </div>
         <div class="row justify-content-center align-items-center inner-row">
             <div class="col-lg-5 col-md-7">
@@ -43,31 +45,35 @@
                     </div>
                     <form action="">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-contol-sm" placeholder="No KTP" id="floatingNoId">
+                            <input type="text" class="form-control form-contol-sm" placeholder="No KTP" id="floatingNoId" required>
                             <label for="floatingNoId">No KTP</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-contol-sm" placeholder="Nama Lengkap" id="floatingName">
+                            <input type="text" class="form-control form-contol-sm" placeholder="Nama Lengkap" id="floatingName" required>
                             <label for="floatingName">Nama Lengkap</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="tel" class="form-control form-contol-sm" placeholder="No Hp" id="floatingNoHp">
+                            <input type="tel" class="form-control form-contol-sm" placeholder="No Hp" id="floatingNoHp" required>
                             <label for="floatingNoHp">No Hp</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control form-contol-sm" placeholder="Alamat Lengkap" id="floatingAddress">
+                            <input type="text" class="form-control form-contol-sm" placeholder="Alamat Lengkap" id="floatingAddress" required>
                             <label for="floatingAddress">Alamat Lengkap</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control form-contol-sm" placeholder="Email" id="floatingInput">
+                            <input type="date" class="form-control form-contol-sm" placeholder="Tanggal Lahir" id="floatingBirthDate" required>
+                            <label for="floatingBirthDate">Tanggal Lahir</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control form-contol-sm" placeholder="Email" id="floatingInput" required>
                             <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control form-contol-sm" placeholder="Password" id="floatingPassword">
+                            <input type="password" class="form-control form-contol-sm" placeholder="Password" id="floatingPassword" required>
                             <label for="floatingPassword">Password</label>
                         </div>
                         <div class="mt-3">
-                            <button class="btn bg-primary text-white">Register</button>
+                            <button class="btn bg-primary text-white" type="submit">Register</button>
                         </div>
                     </form>
                     <div class="mt-3">
